@@ -1,5 +1,134 @@
 html {
-    background-color: #333;
-    color: #fff;
     font-family: Arial, Helvetica, sans-serif;
 }
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-color: #222;
+    color: #f6e609;
+    overflow: hidden;
+    cursor: none;
+    overflow: hidden;
+}
+
+#starwars-logo {
+    width: 50px;
+    height: auto;
+}
+/* Background */
+.stars, .twinkling {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.stars {
+    background: transparent url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle fill="%23FFF" cx="25" cy="25" r="1"/><circle fill="%23FFF" cx="50" cy="50" r="1"/><circle fill="%23FFF" cx="75" cy="75" r="1"/></svg>') repeat;
+    animation: stars 50s linear infinite;
+}
+
+.twinkling {
+    background: transparent url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle fill="%23FFF" cx="50" cy="50" r="1"/><circle fill="%23FFF" cx="75" cy="25" r="1"/><circle fill="%23FFF" cx="25" cy="75" r="1"/></svg>') repeat;
+    animation: twinkling 100s linear infinite;
+}
+
+@keyframes stars {
+    from { background-position: 0 0; }
+    to { background-position: -10000px 5000px; }
+}
+
+@keyframes twinkling {
+    from { background-position: 0 0; }
+    to { background-position: -10000px 5000px; }
+}
+
+.container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    max-height: 80vh;
+    z-index: 1;
+}
+
+.header {
+    margin-bottom: 20px;
+}
+
+.button {
+    margin-bottom: 20px;
+}
+
+#output {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 60vh;
+    overflow-y: auto;
+}
+
+/* light saber cursor */
+
+#custom-cursor {
+    position: absolute;
+    width: 10px;
+    height: 40px;
+    background-color: #333;
+    border-radius: 0 0 5px 5px;
+    border: 2px solid #444;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    pointer-events: none;
+    transition: height 0.2s;
+}
+
+#blade {
+    position: absolute;
+    left: 50%;
+    bottom: 100%;
+    transform: translateX(-50%);
+    width: 10px;
+    height: 0;
+    background: linear-gradient(to bottom, rgba(135, 31, 220, 0.8), rgba(137, 2, 247, 0.2));
+    box-shadow: 0 0 20px 10px rgba(91, 7, 143, 0.5);
+    border-radius: 5px 5px 0 0;
+    transition: height 0.2s ease-in-out;
+}
+
+
+/* Button */
+
+#fetchBtn {
+    background: linear-gradient(45deg, #ffcc00, #00ff2a, #4340ec, #88ff00);
+    background-size: 200% 200%;
+    color: #222;
+    border: none;
+    padding: 20px 40px;
+    font-size: 24px;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+    animation: pulse 2s infinite, color-change 5s infinite, spin 10s infinite linear, glow 1.5s infinite alternate, gradient-shift 15s infinite;
+    box-shadow: 0 0 20px rgba(77, 255, 0, 0.7);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+  }
